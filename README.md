@@ -11,4 +11,4 @@ You then need to input what you want to delete (`c` for comments, `p` for posts)
 ---
 
 ## Limitations
-Obviously this only works on your own account. There also seems to be a limit of 100 submission for each time the script is run, despite `limit=None` being set. Not sure what's happening there.
+Obviously this only works on your own account. There also seems to be a limit of 100 submission for each time the script is run, despite `limit=None` being set. Not sure what's happening there. I would recommend not using the tool for a large number of comments/posts until this issue is fixed.
