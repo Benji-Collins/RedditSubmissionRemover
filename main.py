@@ -2,7 +2,7 @@ import praw
 import time
 import getpass
 
-print "Welcome to the Reddit Comment/Post Remover! You will need to enter your login and client ID/secret, then what you want to delete, then the score threshold for deleted items. For more information, read the wiki on Github at https://github.com/Benji-Collins/RedditSubmissionRemover."
+print "Welcome to the Reddit Comment/Post Remover! Read the README at https://github.com/Benji-Collins/RedditSubmissionRemover for more info."
 raw_username = raw_input("Your Reddit username: ")
 raw_password = getpass.getpass("Your Reddit password: ")
 raw_clientid = raw_input("Your Client ID: ")
@@ -22,7 +22,7 @@ def removecomments(r):
 	deletecount = 0
 	print "Removing comments with " + karma + " or less karma. This may take quite some time. Multiple runs may be needed."
 	for comment in r.redditor(raw_username).comments.new(limit=None):
-		if comment.score < karma:
+		if comment.score < int(karma):
 			comment.delete()
 			print "Removed comment: " + comment.id
 			deletecount += 1
@@ -32,7 +32,7 @@ def removeposts(r):
 	deletecount = 0
 	print "Removing posts with " + karma + " or less karma. This may take quite some time. Multiple runs may be needed."
 	for submission in r.redditor(raw_username).submissions.new(limit=None):
-		if submission.score < karma:
+		if submission.score < int(karma):
 			submission.delete()
 			print "Removed submission: " + submission.id
 			deletecount += 1
